@@ -9,19 +9,23 @@ allItems.ignoreEnigma = true
 local common = ItemPool.find("common"):toList()
 for _, item in ipairs(common) do
     allItems:add(item)
+	allItems:setWeight(item, ITEM_COMMON_WEIGHT)
 end
 
 local uncommon = ItemPool.find("uncommon"):toList()
 for _, item in ipairs(uncommon) do
     allItems:add(item)
+	allItems:setWeight(item, ITEM_UNCOMMON_WEIGHT)
 end
 
 local rare = ItemPool.find("rare"):toList()
 for _, item in ipairs(rare) do
     allItems:add(item)
+	allItems:setWeight(item, ITEM_RARE_WEIGHT)
 end
 
-allItems.weighted = false
+if ITEM_RARITY_BALANCE == then allItems.weighted = false 
+else allItems.weighted = true end
 
 --- on enemy death, drops an item
 registercallback("onNPCDeathProc", function(npc, players)
