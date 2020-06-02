@@ -3,7 +3,7 @@ require("config")
 
 --- creates an item pool which contains vanilla items.
 local allItems = ItemPool.new("all items")
-allItems.ignoreLocks = false
+if SPAWN_LOCKED_ITEMS == false then allItems.ignoreLocks = false end
 allItems.ignoreEnigma = true
 
 local common = ItemPool.find("common"):toList()
