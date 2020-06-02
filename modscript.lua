@@ -37,7 +37,8 @@ registercallback("onNPCDeathProc", function(npc, players)
 	local locationX = npc.x
 	local locationY = npc.y
 	
-	if SPAWN_ITEMS_AT_PLAYER then
+	-- items will always spawn at each player's location if multiplayer
+	if SPAWN_ITEMS_AT_PLAYER or #misc.players > 1 then
 		locationX = players.x
 		locationY = players.y
 	end
