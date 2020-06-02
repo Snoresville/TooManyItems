@@ -44,7 +44,7 @@ registercallback("onNPCDeathProc", function(npc, players)
 	
 	-- creates the item
 	local maxItems = math.random(SPAWN_ITEM_MAX)
-	for numberDrops = 1, SPAWN_ITEM_COUNT do
+	for numberDrops = 1, maxItems do
 		allItems:roll():getObject():create(locationX, locationY)
 	end
 end)
