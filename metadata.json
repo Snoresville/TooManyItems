@@ -1,0 +1,7 @@
+{
+    "name": "TooManyItems",
+    "description": "Every enemy killed drops a random vanilla item.\nThis mod is configurable. Check the config.lua file in the mod folder to edit parts of the mod.",
+	"internalname": "snoresville_TooManyItems",
+    "version": "1.0",
+    "author": "Snoresville",
+}
