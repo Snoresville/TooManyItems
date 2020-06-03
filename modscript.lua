@@ -3,8 +3,10 @@ require("config")
 
 --- creates an item pool which contains vanilla items.
 local allItems = ItemPool.new("all items")
+-- Spawn Locked Items option
 if SPAWN_LOCKED_ITEMS == false then allItems.ignoreLocks = false 
 else allItems.ignoreLocks = true end
+--
 allItems.ignoreEnigma = true
 
 local common = ItemPool.find("common"):toList()
@@ -25,8 +27,10 @@ for _, item in ipairs(rare) do
 	allItems:setWeight(item, ITEM_RARE_WEIGHT)
 end
 
+-- Rarity Balance Option
 if ITEM_RARITY_BALANCE == false then allItems.weighted = false 
 else allItems.weighted = true end
+--
 
 --- on enemy death, drops an item
 registercallback("onNPCDeathProc", function(npc, players)
@@ -44,7 +48,7 @@ registercallback("onNPCDeathProc", function(npc, players)
 	end
 	
 	-- creates the item
-	local maxItems = math.random(SPAWN_ITEM_MAX)
+	local maxItems = math.random(math.floor(SPAWN_ITEM_MAX))
 	for numberDrops = 1, maxItems do
 		allItems:roll():getObject():create(locationX, locationY)
 	end

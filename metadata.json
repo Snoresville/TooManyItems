@@ -4,4 +4,5 @@
 	"internalname": "snoresville_TooManyItems",
     "version": "1.0",
     "author": "Snoresville",
+	"mpcompat": true
 }
