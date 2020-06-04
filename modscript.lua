@@ -18,7 +18,7 @@ function insertItemPool(itemPool)
 		if item.color == "or" and SPAWN_USE_ITEMS == false then goto ItemSkip end -- use item check
 	
 		allItems:add(item)
-		if ITEM_RARITY_BALANCE == false then goto ItemBalanceSkip end
+		if ITEM_RARITY_BALANCE == false then goto ItemSkip end
 		if item.color == "w" then allItems:setWeight(item, ITEM_COMMON_WEIGHT) end
 		if item.color == "g" then allItems:setWeight(item, ITEM_UNCOMMON_WEIGHT) end
 		if item.color == "r" then allItems:setWeight(item, ITEM_RARE_WEIGHT) end
@@ -27,7 +27,6 @@ function insertItemPool(itemPool)
 		
 		::ItemSkip::
 	end
-	::ItemBalanceSkip::
 end
 
 for _, itemPool in ipairs(vanillaPools) do
