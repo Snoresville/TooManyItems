@@ -15,16 +15,19 @@ local vanillaPools = {
 function insertItemPool(itemPool)
 	local itemList = itemPool:toList()
 	for _, item in ipairs(itemList) do
-		if item.color == "or" and SPAWN_USE_ITEMS == false then goto insertItemPoolSkip end -- use item check
+		if item.color == "or" and SPAWN_USE_ITEMS == false then goto ItemSkip end -- use item check
 	
 		allItems:add(item)
+		if ITEM_RARITY_BALANCE == false then goto ItemBalanceSkip end
 		if item.color == "w" then allItems:setWeight(item, ITEM_COMMON_WEIGHT) end
 		if item.color == "g" then allItems:setWeight(item, ITEM_UNCOMMON_WEIGHT) end
 		if item.color == "r" then allItems:setWeight(item, ITEM_RARE_WEIGHT) end
 		if item.color == "or" then allItems:setWeight(item, ITEM_USE_WEIGHT) end
+		if item.color == "p" then allItems:setWeight(item, ITEM_RARE_WEIGHT) end
 		
-		::insertItemPoolSkip::
+		::ItemSkip::
 	end
+	::ItemBalanceSkip::
 end
 
 for _, itemPool in ipairs(vanillaPools) do
